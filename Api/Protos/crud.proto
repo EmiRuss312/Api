@@ -1,0 +1,36 @@
+syntax = "proto3";
+ 
+import "google/protobuf/empty.proto";
+
+option csharp_namespace = "UserService";
+ 
+service UserService{
+
+  rpc Login(LoginRequest) returns (LoginReply);
+  rpc GetUser(GetUserRequest) returns (GetUserReply);
+}
+ 
+message LoginRequest{
+	string phone = 1;
+	string password = 2;
+}
+message LoginReply{
+	bool signup = 1;
+}
+message GetUserReply{
+	int32 id = 1;
+	string phone = 2;
+	string FirstName = 3;
+	string LastName = 4;
+	string SecondName = 5;
+	string TimeDeposit = 6;
+	string DemandDeposit = 7;
+	string CardDeposit = 8;
+}
+message AccountReply{
+	int32 id = 1;
+	string number = 2;
+}
+message GetUserRequest{
+	string phoneNumber = 1;
+}
